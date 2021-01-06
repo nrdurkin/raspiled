@@ -1,6 +1,7 @@
 import time
 import board
 import colorsys
+import neopixel
 
 
 # LED strip configuration:
