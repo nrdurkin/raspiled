@@ -5,7 +5,7 @@ import neopixel
 
 # LED strip configuration:
 LED_COUNT = 200  # Number of LED pixels.
-strip = neopixel.NeoPixel(board.D18, LED_COUNT)
+strip = neopixel.NeoPixel(board.D18, LED_COUNT, auto_write=False)
 
 
 # Define functions which animate LEDs in various ways.
@@ -19,6 +19,7 @@ def colorWipe(color, wait_ms=25):
 def blockColor(color):
     for i in range(strip):
         strip[i] = color
+    strip.show()
 
 def rgb(hex):
     if hex[0] == '#':
