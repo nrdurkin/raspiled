@@ -1,6 +1,6 @@
 import logging,json
 
-from controller import blockColor, rgb
+from controller import blockColor, rgb, crossFade
 
 from flask import Flask, render_template, request
 app = Flask(__name__, static_url_path='',static_folder='public', template_folder='public')
@@ -19,6 +19,11 @@ def handleColor():
 
     blockColor(rgb(color))
 
+    return "Success"
+
+@app.route("/fade",methods=['POST'])
+def handleFade():
+    crossFade()
     return "Success"
 
 app.run(host="0.0.0.0", port="8000")
