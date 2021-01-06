@@ -17,7 +17,7 @@ def colorWipe(color, wait_ms=25):
 
 
 def blockColor(color):
-    for i in range(strip):
+    for i in range(LED_COUNT):
         strip[i] = color
     strip.show()
 
