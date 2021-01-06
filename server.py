@@ -2,7 +2,7 @@ import http.server
 import socketserver
 import json
 
-from controller import blockColor, rgb
+# from controller import blockColor, rgb
 
 
 class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -18,7 +18,8 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
         data_string = self.rfile.read(int(self.headers['Content-Length']))
 
         data = json.loads(data_string)
-        blockColor(rgb(data['color']))
+        print(data)
+        # blockColor(rgb(data['color']))
 
         self.send_response(http.server.HTTPStatus.OK)
         return self.end_headers()
