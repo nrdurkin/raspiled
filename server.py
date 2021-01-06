@@ -17,8 +17,10 @@ def handleColor():
     data = json.loads(data)
     color = data['color']
 
-    blockColor(rgb(color))
+    # blockColor(rgb(color))
 
     return "Success"
 
 app.run(host="0.0.0.0", port="8000")
+
+blockColor(rgb("#ff0000"))
