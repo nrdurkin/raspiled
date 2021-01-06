@@ -4,7 +4,7 @@ import neopixel
 
 
 # LED strip configuration:
-LED_COUNT = 200  # Number of LED pixels.
+LED_COUNT = 300  # Number of LED pixels.
 strip = neopixel.NeoPixel(board.D18, LED_COUNT, auto_write=False)
 
 
