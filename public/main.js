@@ -36,7 +36,7 @@ document.getElementById("fairy-submit").onclick = (e) => {
     let data = JSON.stringify({
         minSpeed: min,
         maxSpeed: max,
-        count: count
+        count: parseInt(count)
     });
     next_request = {
         url: "/fairy",

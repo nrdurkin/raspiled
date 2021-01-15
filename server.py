@@ -34,9 +34,9 @@ def handleFade():
 def handleFairy():
     data = request.get_data().decode()
     data = json.loads(data)
-    min_speed = data['minSpeed']
-    max_speed = data['maxSpeed']
-    count = data['count']
+    min_speed = float(data['minSpeed'])
+    max_speed = float(data['maxSpeed'])
+    count = int(data['count'])
     if device == "PI":
         initFairy(min_speed, max_speed, count)
     return "Success"
