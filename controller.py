@@ -38,6 +38,8 @@ def initFairy(min_speed=.5, max_speed=5, count=30):
     fairyVar['max_speed'] = max_speed
     fairyVar['min_speed'] = min_speed
     fairyVar['arr'] = []
+    for i in range(LED_COUNT):
+        strip[i] = (0,0,0)
     for i in range(fairyVar['lights']):
         pos = random.randint(0,299)
         brightness = random.random()*255*2
