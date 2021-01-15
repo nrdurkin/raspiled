@@ -70,7 +70,10 @@ def drawFairy():
             strip[light[0]] = col
     strip.show()
 
+frameCount = 0
 def loop():
+    print(frameCount)
+    frameCount++
     if mode == 'FAIRY':
         drawFairy()
     return
