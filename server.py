@@ -1,4 +1,4 @@
-import logging,json, sys, asyncio
+import logging,json, sys, _thread
 device = sys.argv[1]
 if device == 'PI':
     from controller import blockColor, rgb, crossFade, initFairy, main
@@ -31,5 +31,5 @@ def handleFade():
     return "Success"
 
 if device == 'PI':
-    asyncio.run(main(0))
+    _thread.start_new_thread(main, (0))
 app.run(host="0.0.0.0", port="8000")

@@ -1,4 +1,4 @@
-import time, random, asyncio
+import time, random
 
 import board, colorsys, neopixel
 
@@ -80,7 +80,7 @@ def loop():
     return
 
 FPS = 60
-async def main(lastFrameTime):
+def main(lastFrameTime):
     loop()
     currentTime = time.time()
     sleepTime = 1. / FPS - (currentTime - lastFrameTime)
