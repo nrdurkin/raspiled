@@ -1,6 +1,6 @@
 import time, random
 
-import board, colorsys, neopixel
+import board, neopixel
 
 
 # LED strip configuration:
@@ -22,24 +22,7 @@ def rgb(hex):
 
 def crossFade():
     mode = 'CROSSFADE'
-    frame(0)
 
-
-def frame(fadeHue=0):
-    if mode == 'CROSSFADE':
-        fadeHue+=.005
-        if fadeHue >1:
-            fadeHue = 0
-        strip.fill(colorsys.hls_to_rgb(fadeHue,.5,1))
-        time.sleep(.05)
-        frame(fadeHue)
-    else:
-        return
-
-                # blockColor(strip, rgb(color))  # Green wipe
-
-    # except KeyboardInterrupt:
-    #     colorWipe(strip, (0, 0, 0), 10)
 
 fairyVar = {
     'lights':20,
@@ -51,27 +34,24 @@ def initFairy():
     mode = 'FAIRY'
     fairyVar['lights'] = 20
     for i in range(fairyVar['lights']):
-        print(i)
         pos = random.randint(0,299)
         brightness = random.random()*255*2
         speed = random.random()*5+.1
-        print([pos, brightness, speed])
-        fairyVar['arr'] = [pos, brightness, speed]
+        fairyVar['arr'].append([pos, brightness, speed]
 
 def drawFairy():
     for i, light in enumerate(fairyVar['arr']):
-        print(light[1], light[2])
         light[1] += light[2]
         if light[1] > 255*2:
             #reset pixel
-            strip[light[0]] = rgb(0,0,0)
+            strip[light[0]] = (0,0,0)
             #generate new light
             pos = random.randint(0, 299)
             speed = random.random()*5+.1
             fairyVar['arr'][i] = [pos, 0, speed]
         else:
             x = light[1]
-            col = rgb(x,x,x) if x <= 255 else rgb(510-x,510-x,510-x)
+            col = (x,x,x) if x <= 255 else (510-x,510-x,510-x)
             strip[light[0]] = col
     strip.show()
 
