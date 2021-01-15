@@ -79,6 +79,9 @@ def loop():
         drawFairy()
     return
 
+initFairy()
+loop()
+
 # each mode can have state object and function
 # master loop checks mode, calls function
 # function calculates next frame and draws it, updating state object

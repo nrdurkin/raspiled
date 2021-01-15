@@ -37,7 +37,9 @@ app.run(host="0.0.0.0", port="8000")
 
 FPS = 60
 lastFrameTime = 0
-while True:
+def main():
+    global lastFrameTime
+    print("call")
     if device=='PI':
         loop()
     currentTime = time.time()
@@ -45,3 +47,6 @@ while True:
     lastFrameTime = currentTime
     if sleepTime > 0:
         time.sleep(sleepTime)
+    main()
+
+main()
