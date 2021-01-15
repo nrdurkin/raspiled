@@ -60,6 +60,7 @@ def initFairy():
 
 def drawFairy():
     for i, light in enumerate(fairyVar['arr']):
+        print(light[1], light[2])
         light[1] += light[2]
         if light[1] > 255*2:
             #reset pixel
@@ -69,7 +70,8 @@ def drawFairy():
             speed = random.random()*5+.1
             fairyVar['arr'][i] = [pos, 0, speed]
         else:
-            col = rgb(light[1],light[1],light[1])
+            x = light[1]
+            col = rgb(x,x,x) if x <= 255 else col = rgb(510-x,510-x,510-x)
             strip[light[0]] = col
     strip.show()
 
