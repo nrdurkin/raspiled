@@ -47,12 +47,15 @@ fairyVar = {
 }
 
 def initFairy():
+    global mode
     mode = 'FAIRY'
     fairyVar['lights'] = 20
     for i in range(fairyVar['lights']):
+        print(i)
         pos = random.randint(0,299)
         brightness = random.random()*255*2
         speed = random.random()*5+.1
+        print([pos, brightness, speed])
         fairyVar['arr'] = [pos, brightness, speed]
 
 def drawFairy():
@@ -73,9 +76,9 @@ def drawFairy():
 frameCount = 0
 def loop():
     global frameCount, mode
-    print(frameCount)
     frameCount+=1
     if mode == 'FAIRY':
+
         drawFairy()
     return
 
