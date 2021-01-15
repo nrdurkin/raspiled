@@ -71,7 +71,7 @@ def drawFairy():
             fairyVar['arr'][i] = [pos, 0, speed]
         else:
             x = light[1]
-            col = rgb(x,x,x) if x <= 255 else col = rgb(510-x,510-x,510-x)
+            col = rgb(x,x,x) if x <= 255 else rgb(510-x,510-x,510-x)
             strip[light[0]] = col
     strip.show()
 
