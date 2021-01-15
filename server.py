@@ -1,7 +1,7 @@
 import logging,json, sys, time
 device = sys.argv[1]
 if device == 'PI':
-    from controller import blockColor, rgb, crossFade, initFairy, loop
+    from controller import blockColor, rgb, crossFade, initFairy, main
 
 from flask import Flask, render_template, request
 app = Flask(__name__, static_url_path='',static_folder='public', template_folder='public')
@@ -30,23 +30,6 @@ def handleFade():
         initFairy()
     return "Success"
 
-
+if device == 'PI':
+    main(0)
 app.run(host="0.0.0.0", port="8000")
-
-
-
-FPS = 60
-lastFrameTime = 0
-def main():
-    global lastFrameTime
-    print("call")
-    if device=='PI':
-        loop()
-    currentTime = time.time()
-    sleepTime = 1. / FPS - (currentTime - lastFrameTime)
-    lastFrameTime = currentTime
-    if sleepTime > 0:
-        time.sleep(sleepTime)
-    main()
-
-main()

@@ -1,4 +1,4 @@
-import time, random
+import time, random, asyncio
 
 import board, colorsys, neopixel
 
@@ -79,8 +79,16 @@ def loop():
         drawFairy()
     return
 
-initFairy()
-loop()
+FPS = 60
+async def main(lastFrameTime):
+    loop()
+    currentTime = time.time()
+    sleepTime = 1. / FPS - (currentTime - lastFrameTime)
+    lastFrameTime = currentTime
+    if sleepTime > 0:
+        time.sleep(sleepTime)
+    main(lastFrameTime)
+
 
 # each mode can have state object and function
 # master loop checks mode, calls function
