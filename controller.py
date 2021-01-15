@@ -26,17 +26,21 @@ def crossFade():
 
 fairyVar = {
     'lights':20,
-    'arr':[]
+    'arr':[],
+    'min_speed':.5,
+    'max_speed':5
 }
 
-def initFairy():
+def initFairy(min_speed=.5, max_speed=5, count=30):
     global mode
     mode = 'FAIRY'
-    fairyVar['lights'] = 20
+    fairyVar['lights'] = count
+    fairyVar['max_speed'] = max_speed
+    fairyVar['min_speed'] = min_speed
     for i in range(fairyVar['lights']):
         pos = random.randint(0,299)
         brightness = random.random()*255*2
-        speed = random.random()*5+.1
+        speed = random.uniform(min_speed, max_speed)
         fairyVar['arr'].append([pos, brightness, speed])
 
 def drawFairy():
@@ -47,7 +51,7 @@ def drawFairy():
             strip[light[0]] = (0,0,0)
             #generate new light
             pos = random.randint(0, 299)
-            speed = random.random()*5+.1
+            speed = random.uniform(fairyVar['min_speed'], fairyVar['max_speed'])
             fairyVar['arr'][i] = [pos, 0, speed]
         else:
             x = light[1]

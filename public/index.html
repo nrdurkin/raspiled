@@ -16,7 +16,18 @@
     <input id="color-select"type="color" value="#ff0000">
     <button id="fade">Fade</button>
     <div id="picker"></div>
-
+    <div id="fairy">
+        <label for="fairy-min">Min Flicker</label>
+        <input type="number" name="fairy-min" id="fairy-min" value=".5" min=".1" max="5" step=".1">
+        <br>
+        <label for="fairy-max">Max Flicker</label>
+        <input type="number" name="fairy-max" id="fairy-max" value="5" min="1" max="10" step=".5">
+        <br>
+        <label for="fairy-count">Fairy Count</label>
+        <input type="number" name="fairy-count" id="fairy-count" value="30" step="1" min="10" max="500">
+        <br>
+        <button type="submit" id="fairy-submit">Update</button>
+    </div>
 </body>
 <script src="main.js"></script>
 </html>

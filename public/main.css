@@ -1,0 +1,10 @@
+#fairy{
+    padding:5px;
+    border:1px solid lightgrey;
+    border-radius: 3px;
+    margin:5px;
+}
+#fairy label{
+    width: 80px;
+    display: inline-block;
+}

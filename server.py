@@ -25,9 +25,20 @@ def handleColor():
 
 @app.route("/fade",methods=['POST'])
 def handleFade():
-    if device == "PI":
+    #if device == "PI":
         # crossFade()
-        initFairy()
+        # initFairy()
+    return "Success"
+
+@app.route("/fairy",methods=['POST'])
+def handleFairy():
+    data = request.get_data().decode()
+    data = json.loads(data)
+    min_speed = data['minSpeed']
+    max_speed = data['maxSpeed']
+    count = data['count']
+    if device == "PI":
+        initFairy(min_speed, max_speed, count)
     return "Success"
 
 if device == 'PI':
