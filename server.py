@@ -31,5 +31,5 @@ def handleFade():
     return "Success"
 
 if device == 'PI':
-    _thread.start_new_thread(main, (0))
+    _thread.start_new_thread(main, (0,))
 app.run(host="0.0.0.0", port="8000")
