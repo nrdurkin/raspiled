@@ -51,8 +51,8 @@ def initFairy():
     fairyVar['lights'] = 20
     for i in range(fairyVar['lights']):
         pos = random.randint(0,299)
-        brightness = random.random(0, 255*2)
-        speed = random.random(0.1, 5)
+        brightness = random.random()*255*2
+        speed = random.random()*5+.1
         fairyVar['arr'] = [pos, brightness, speed]
 
 def drawFairy():
@@ -63,7 +63,7 @@ def drawFairy():
             strip[light[0]] = rgb(0,0,0)
             #generate new light
             pos = random.randint(0, 299)
-            speed = random.random(0.1, 5)
+            speed = random.random()*5+.1
             fairyVar['arr'][i] = [pos, 0, speed]
         else:
             col = rgb(light[1],light[1],light[1])
