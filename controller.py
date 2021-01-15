@@ -1,7 +1,6 @@
-import time
-import board
-import colorsys
-import neopixel
+import time, random
+
+import board, colorsys, neopixel
 
 
 # LED strip configuration:
@@ -41,3 +40,54 @@ def frame(fadeHue=0):
 
     # except KeyboardInterrupt:
     #     colorWipe(strip, (0, 0, 0), 10)
+
+fairyVar = {
+    'lights':20,
+    'arr':[]
+}
+
+def initFairy():
+    mode = 'FAIRY'
+    fairyVar['lights'] = 20
+    for i in range(fairyVar['lights']):
+        pos = random.randint(0,299)
+        brightness = random.random(0, 255*2)
+        speed = random.random(0.1, 5)
+        fairyVar['arr'] = [pos, brightness, speed]
+
+def drawFairy():
+    for i, light in enumerate(fairyVar['arr']):
+        light[1] += light[2]
+        if light[1] > 255*2:
+            #reset pixel
+            strip[light[0]] = rgb(0,0,0)
+            #generate new light
+            pos = random.randint(0, 299)
+            speed = random.random(0.1, 5)
+            fairyVar['arr'][i] = [pos, 0, speed]
+        else:
+            col = rgb(light[1],light[1],light[1])
+            strip[light[0]] = col
+    strip.show()
+
+def loop():
+    if mode == 'FAIRY':
+        drawFairy()
+    return
+
+# each mode can have state object and function
+# master loop checks mode, calls function
+# function calculates next frame and draws it, updating state object
+
+# either one init function, or each mode can have its own init function
+
+
+FPS = 60
+lastFrameTime = 0
+while True:
+    loop()
+    currentTime = time.time()
+    sleepTime = 1. / FPS - (currentTime - lastFrameTime)
+    lastFrameTime = currentTime
+    if sleepTime > 0:
+        time.sleep(sleepTime)
