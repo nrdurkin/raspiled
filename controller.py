@@ -37,7 +37,7 @@ def initFairy():
         pos = random.randint(0,299)
         brightness = random.random()*255*2
         speed = random.random()*5+.1
-        fairyVar['arr'].append([pos, brightness, speed]
+        fairyVar['arr'].append([pos, brightness, speed])
 
 def drawFairy():
     for i, light in enumerate(fairyVar['arr']):
