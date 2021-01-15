@@ -72,8 +72,9 @@ def drawFairy():
 
 frameCount = 0
 def loop():
+    global frameCount, mode
     print(frameCount)
-    frameCount++
+    frameCount+=1
     if mode == 'FAIRY':
         drawFairy()
     return
