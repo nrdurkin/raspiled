@@ -80,14 +80,3 @@ def loop():
 # function calculates next frame and draws it, updating state object
 
 # either one init function, or each mode can have its own init function
-
-
-FPS = 60
-lastFrameTime = 0
-while True:
-    loop()
-    currentTime = time.time()
-    sleepTime = 1. / FPS - (currentTime - lastFrameTime)
-    lastFrameTime = currentTime
-    if sleepTime > 0:
-        time.sleep(sleepTime)
