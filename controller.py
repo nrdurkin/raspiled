@@ -66,13 +66,13 @@ def loop():
 
 FPS = 60
 def main(lastFrameTime):
-    loop()
-    currentTime = time.time()
-    sleepTime = 1. / FPS - (currentTime - lastFrameTime)
-    lastFrameTime = currentTime
-    if sleepTime > 0:
-        time.sleep(sleepTime)
-    main(lastFrameTime)
+    while True:
+        loop()
+        currentTime = time.time()
+        sleepTime = 1. / FPS - (currentTime - lastFrameTime)
+        lastFrameTime = currentTime
+        if sleepTime > 0:
+            time.sleep(sleepTime)
 
 
 # each mode can have state object and function
