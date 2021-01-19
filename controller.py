@@ -1,6 +1,6 @@
 import time, random
 
-import board, neopixel
+import board, neopixel, colorsys
 
 
 # LED strip configuration:
@@ -38,16 +38,15 @@ fadeVar = {
 }
 
 def nextCrossFade():
-    fadeVar['col'][0] = int(fadeVar['col'[0]])
-    fadeVar['col'][1] = int(fadeVar['col'[1]])
-    fadeVar['col'][2] = int(fadeVar['col'[2]])
-    r = random.randint(0,255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
+
+    fadeVar['col'][0] = int(fadeVar['col'][0])
+    fadeVar['col'][1] = int(fadeVar['col'][1])
+    fadeVar['col'][2] = int(fadeVar['col'][2])
+    rgb = colorsys.hsv_to_rgb((random.uniform(0,1), 1, 1))
     frames = random.randint(120,360)
-    dR = float(r - fadeVar['col'][0]) / frames
-    dG = float(g - fadeVar['col'][1]) / frames
-    dB = float(b - fadeVar['col'][2]) / frames
+    dR = float(rgb[0] - fadeVar['col'][0]) / frames
+    dG = float(rgb[1] - fadeVar['col'][1]) / frames
+    dB = float(rgb[2] - fadeVar['col'][2]) / frames
     fadeVar['change'] = [dR,dG,dB]
     fadeVar['frames'] = frames
 
