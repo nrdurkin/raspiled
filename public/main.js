@@ -1,7 +1,9 @@
 let next_request = null;
-document.getElementById("color-select").oninput = (e) => {
-    let data = JSON.stringify({ color: e.target.value });
 
+let colorPicker = new iro.ColorPicker("#picker");
+colorPicker.on("color:change", function (color) {
+    // log the current color as a HEX string
+    let data = JSON.stringify({ color: color.hexString });
     next_request = {
         url: "/color",
         data: {
@@ -13,7 +15,7 @@ document.getElementById("color-select").oninput = (e) => {
             body: data
         }
     };
-};
+});
 
 document.getElementById("fade").onclick = (e) => {
     next_request = {
@@ -66,7 +68,4 @@ function post() {
             });
     }
 }
-
-var colorPicker = new iro.ColorPicker("#picker");
-
 setInterval(post, 50);
