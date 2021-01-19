@@ -42,11 +42,12 @@ def nextCrossFade():
     fadeVar['col'][0] = int(fadeVar['col'][0])
     fadeVar['col'][1] = int(fadeVar['col'][1])
     fadeVar['col'][2] = int(fadeVar['col'][2])
-    rgb = colorsys.hsv_to_rgb((random.uniform(0,1), 1, 1))
+    new_rgb = colorsys.hsv_to_rgb((random.uniform(0,1), 1, 1))
+    print(new_rgb)
     frames = random.randint(120,360)
-    dR = float(rgb[0] - fadeVar['col'][0]) / frames
-    dG = float(rgb[1] - fadeVar['col'][1]) / frames
-    dB = float(rgb[2] - fadeVar['col'][2]) / frames
+    dR = float(new_rgb[0] - fadeVar['col'][0]) / frames
+    dG = float(new_rgb[1] - fadeVar['col'][1]) / frames
+    dB = float(new_rgb[2] - fadeVar['col'][2]) / frames
     fadeVar['change'] = [dR,dG,dB]
     fadeVar['frames'] = frames
 
@@ -122,6 +123,7 @@ def main(lastFrameTime):
         if sleepTime > 0:
             time.sleep(sleepTime)
 
+initCrossFade()
 
 # each mode can have state object and function
 # master loop checks mode, calls function
