@@ -42,7 +42,7 @@ def nextCrossFade():
     fadeVar['col'][0] = int(fadeVar['col'][0])
     fadeVar['col'][1] = int(fadeVar['col'][1])
     fadeVar['col'][2] = int(fadeVar['col'][2])
-    new_rgb = colorsys.hsv_to_rgb((random.uniform(0,1), 1, 1))
+    new_rgb = colorsys.hsv_to_rgb(random.uniform(0,1), 1, 1)
     print(new_rgb)
     frames = random.randint(120,360)
     dR = float(new_rgb[0] - fadeVar['col'][0]) / frames
