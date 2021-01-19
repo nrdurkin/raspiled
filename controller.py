@@ -6,6 +6,7 @@ import board, neopixel
 # LED strip configuration:
 LED_COUNT = 300  # Number of LED pixels.
 strip = neopixel.NeoPixel(board.D18, LED_COUNT, auto_write=False)
+mode = ''
 
 def fill(color):
     for i in range(LED_COUNT):
