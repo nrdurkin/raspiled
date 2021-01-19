@@ -1,7 +1,7 @@
 import logging,json, sys, _thread
 device = sys.argv[1]
 if device == 'PI':
-    from controller import blockColor, rgb, crossFade, initFairy, main
+    from controller import blockColor, rgb, initCrossFade, initFairy, main
 
 from flask import Flask, render_template, request
 app = Flask(__name__, static_url_path='',static_folder='public', template_folder='public')
@@ -25,9 +25,8 @@ def handleColor():
 
 @app.route("/fade",methods=['POST'])
 def handleFade():
-    #if device == "PI":
-        # crossFade()
-        # initFairy()
+    if device == "PI":
+        initCrossFade()
     return "Success"
 
 @app.route("/fairy",methods=['POST'])
