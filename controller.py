@@ -119,7 +119,8 @@ stripeVar = {
 def initStripe():
     global mode
     mode = 'STRIPE'
-    colors = [], widths = []
+    colors = []
+    widths = []
     colors.append((255,0,0))
     colors.append((0,255,0))
     widths.append(2)
@@ -130,7 +131,8 @@ def initStripe():
     stripeVar['interval'] = 1
     stripeVar['frames'] = 0
 
-    stripeVar['col'] = colors, stripeVar['width'] = widths
+    stripeVar['col'] = colors
+    stripeVar['width'] = widths
 
 def drawStripe():
     if stripeVar['frames'] <=0:
@@ -138,11 +140,12 @@ def drawStripe():
         stripeVar['offset'] += 1
         if stripeVar['offset'] > stripeVar['totalWidth']:
             stripeVar['offset'] = 0
-        i = 0
+        i = -stripeVar['offset']
         while i < LED_COUNT:
-            for j, col in enumerate(stripeVar['colors']):
+            for j, col in enumerate(stripeVar['col']):
                 for x in range(stripeVar['width'][j]):
-                    strip[i] = col
+                    if i >= 0:
+                        strip[i] = col
                     i+=1
         strip.show()
     stripeVar['frames'] -= 1
