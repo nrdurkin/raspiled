@@ -138,7 +138,7 @@ def drawStripe():
     if stripeVar['frames'] <=0:
         stripeVar['frames'] = stripeVar['interval'] * 60
         stripeVar['offset'] += 1
-        if stripeVar['offset'] > stripeVar['totalWidth']:
+        if stripeVar['offset'] >= stripeVar['totalWidth']:
             stripeVar['offset'] = 0
         i = -stripeVar['offset']
         while i < LED_COUNT:
