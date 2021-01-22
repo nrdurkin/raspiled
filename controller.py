@@ -42,7 +42,6 @@ fadeVar = {
 }
 
 def nextCrossFade():
-
     fadeVar['col'][0] = int(fadeVar['col'][0])
     fadeVar['col'][1] = int(fadeVar['col'][1])
     fadeVar['col'][2] = int(fadeVar['col'][2])
@@ -108,12 +107,54 @@ def drawFairy():
             strip[light[0]] = col
     strip.show()
 
+stripeVar = {
+    'col' : [],
+    'width' : [],
+    'interval' : 1,
+    'totalWidth' : 0,
+    'offset' : 0,
+    'frames' : 0
+}
+
+def initStripe():
+    global mode
+    mode = 'STRIPE'
+    colors = [], widths = []
+    colors.append((255,0,0))
+    colors.append((0,255,0))
+    widths.append(2)
+    widths.append(2)
+
+    stripeVar['totalWidth'] = 4
+    stripeVar['offset'] = 0
+    stripeVar['interval'] = 1
+    stripeVar['frames'] = 0
+
+    stripeVar['col'] = colors, stripeVar['width'] = widths
+
+def drawStripe():
+    if stripeVar['frames'] <=0:
+        stripeVar['frames'] = stripeVar['interval'] * 60
+        stripeVar['offset'] += 1
+        if stripeVar['offset'] > stripeVar['totalWidth']:
+            stripeVar['offset'] = 0
+        i = 0
+        while i < LED_COUNT:
+            for j, col in enumerate(stripeVar['colors']):
+                for x in range(stripeVar['width'][j]):
+                    strip[i] = col
+                    i+=1
+        strip.show()
+    stripeVar['frames'] -= 1
+
 def loop():
     global mode
     if mode == 'FAIRY':
         drawFairy()
     elif mode == 'CROSSFADE':
         drawCrossFade()
+    elif mode == 'STRIPE':
+        drawStripe()
     return
 
 FPS = 60
