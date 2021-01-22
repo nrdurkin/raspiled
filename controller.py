@@ -144,7 +144,7 @@ def drawStripe():
         while i < LED_COUNT:
             for j, col in enumerate(stripeVar['col']):
                 for x in range(stripeVar['width'][j]):
-                    if i >= 0:
+                    if i >= 0 and i < LED_COUNT:
                         strip[i] = col
                     i+=1
         strip.show()
