@@ -121,12 +121,13 @@ def initStripe(colors, interval):
     mode = 'STRIPE'
     cols = []
     widths = []
+    stripeVar['totalWidth'] = 0
 
     for stripe in colors:
         widths.append(int(stripe['width']))
         cols.append(rgb(stripe['color']))
+        stripeVar['totalWidth'] += int(stripe['width'])
 
-    stripeVar['totalWidth'] = 4
     stripeVar['offset'] = 0
     stripeVar['interval'] = interval
     stripeVar['frames'] = 0
