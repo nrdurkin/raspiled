@@ -116,22 +116,22 @@ stripeVar = {
     'frames' : 0
 }
 
-def initStripe():
+def initStripe(colors, interval):
     global mode
     mode = 'STRIPE'
-    colors = []
+    cols = []
     widths = []
-    colors.append((255,0,0))
-    colors.append((0,255,0))
-    widths.append(2)
-    widths.append(2)
+
+    for stripe in colors:
+        widths.append(int(stripe['width']))
+        cols.append(rgb(stripe['color']))
 
     stripeVar['totalWidth'] = 4
     stripeVar['offset'] = 0
-    stripeVar['interval'] = 1
+    stripeVar['interval'] = interval
     stripeVar['frames'] = 0
 
-    stripeVar['col'] = colors
+    stripeVar['col'] = cols
     stripeVar['width'] = widths
 
 def drawStripe():

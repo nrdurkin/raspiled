@@ -8,3 +8,32 @@
     width: 80px;
     display: inline-block;
 }
+#stripe{
+    display: flex;
+    flex-direction: row;
+}
+.stripe-color{
+    display: flex;
+    flex-direction: column;
+}
+.stripe-delete{
+    width:fit-content;
+    float:right;
+}
+.stripe-width{
+    width:30px;
+}
+.hidden{
+    color:white;
+}
+
+#stripe-options{
+    margin:5px;
+}
+
+.stripe-color{
+    padding:5px;
+}
+#stripe-interval{
+    width:40px;
+}

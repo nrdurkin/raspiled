@@ -1,7 +1,7 @@
 import logging,json, sys, _thread
 device = sys.argv[1]
 if device == 'PI':
-    from controller import blockColor, rgb, initCrossFade, initFairy, main
+    from controller import blockColor, rgb, initCrossFade, initFairy, initStripe, main
 
 from flask import Flask, render_template, request
 app = Flask(__name__, static_url_path='',static_folder='public', template_folder='public')
@@ -38,6 +38,16 @@ def handleFairy():
     count = int(data['count'])
     if device == "PI":
         initFairy(min_speed, max_speed, count)
+    return "Success"
+
+@app.route("/stripe", methods=['POST'])
+def handleStripe():
+    data = request.get_data().decode()
+    data = json.loads(data)
+    interval = int(data['interval'])
+    colors = data['colors']
+    if device == "PI":
+        initStripe(colors, interval)
     return "Success"
 
 if device == 'PI':

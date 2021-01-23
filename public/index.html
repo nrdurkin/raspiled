@@ -27,6 +27,27 @@
         <br>
         <button type="submit" id="fairy-submit">Update</button>
     </div>
+    <div id="stripe">
+        <div class="stripe-color">
+            <div><div class="stripe-delete hidden">x</div></div>
+            <input type="color" value="#ff0000" class = "stripe-color-input">
+            <input class="stripe-width" type="number" value="2">
+        </div>
+        <div class="stripe-color">
+            <div><div class="stripe-delete hidden">x</div></div>
+            <input class = "stripe-color-input" type="color" value="#0000ff">
+            <input class="stripe-width" type="number" value="2">
+        </div>
+        <div id = "stripe-add">
+            +
+        </div>
+        <div id="stripe-options">
+            <label for="interval">Interval:</label>
+            <input name = "interval" type="number" value="1" id="stripe-interval">
+            <br>
+            <button id = "stripe-post">Update</button>
+        </div>
+    </div>
 </body>
 <script src="main.js"></script>
 </html>
