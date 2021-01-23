@@ -142,13 +142,14 @@ def drawStripe():
         if stripeVar['offset'] >= stripeVar['totalWidth']:
             stripeVar['offset'] = 0
         i = -stripeVar['offset']
-        while i < LED_COUNT:
-            for j, col in enumerate(stripeVar['col']):
-                for x in range(stripeVar['width'][j]):
-                    if i >= 0 and i < LED_COUNT:
-                        strip[i] = col
-                    i+=1
-        strip.show()
+        if stripeVar['totalWidth'] > 0:
+            while i < LED_COUNT:
+                for j, col in enumerate(stripeVar['col']):
+                    for x in range(stripeVar['width'][j]):
+                        if i >= 0 and i < LED_COUNT:
+                            strip[i] = col
+                        i+=1
+            strip.show()
     stripeVar['frames'] -= 1
 
 def loop():
