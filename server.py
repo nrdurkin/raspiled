@@ -44,7 +44,7 @@ def handleFairy():
 def handleStripe():
     data = request.get_data().decode()
     data = json.loads(data)
-    interval = int(data['interval'])
+    interval = float(data['interval'])
     colors = data['colors']
     if device == "PI":
         initStripe(colors, interval)
