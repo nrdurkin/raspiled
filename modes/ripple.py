@@ -43,17 +43,15 @@ class RippleCtrl:
             max_change = 7
             cur = self._colors[node.index]
             tar = node.color
-            print(cur, tar)
             r = cur[0] + max(-max_change, min(max_change, tar[0] - cur[0]))
             g = cur[1] + max(-max_change, min(max_change, tar[1] - cur[1]))
             b = cur[2] + max(-max_change, min(max_change, tar[2] - cur[2]))
             self._colors[node.index] = (r,g,b)
-            print(self._colors[node.index])
 
 
         newCols = []
         for i in range(len(self._colors)):
-            newCols.append( self._averageLocal(i))
+            newCols.append(self._averageLocal(i))
         self._colors = newCols
         for i, col in enumerate(self._colors):
             self._strip[i] = col
