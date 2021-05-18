@@ -24,7 +24,7 @@ class RippleCtrl:
             self._spawnNode()
 
     def _averageLocal(self, i):
-        _range = 9
+        _range = 4
 
         f = lambda q: -.01 * q * q + 1
 
