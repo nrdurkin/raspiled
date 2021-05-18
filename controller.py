@@ -56,7 +56,7 @@ class ColorStrip:
         elif mode == Mode.RIPPLE:
             self._RippleCtrl.start()
 
-FPS = 300
+FPS = 60
 def main(strip :ColorStrip):
     strip.setMode(Mode.RIPPLE)
     lastFrameTime = 0
