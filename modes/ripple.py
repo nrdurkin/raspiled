@@ -43,6 +43,7 @@ class RippleCtrl:
             max_change = 7
             cur = self._colors[node.index]
             tar = node.color
+            print(cur, tar)
             r = max(max_change, min(-max_change, tar[0] - cur[0]))
             g = max(max_change, min(-max_change, tar[1] - cur[1]))
             b = max(max_change, min(-max_change, tar[2] - cur[2]))
