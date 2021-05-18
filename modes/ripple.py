@@ -13,9 +13,15 @@ class RippleCtrl:
         self._colors = [(0,0,0) for i in range(len(strip))]
         self._strip = strip
         self.fill = f
+        self._spawnNext = random.randint(60*3,60*5)
+
+    def _spawnNode(self):
+        self._nodes.append(Node(random.randint(0, len(self._strip))))
+        self._spawnNext = random.randint(60 * 3, 60 * 5)
 
     def start(self):
-        self._nodes.append(Node(10))
+        for i in range(4):
+            self._spawnNode()
 
     def _averageLocal(self, i):
         _range = 9
@@ -36,6 +42,10 @@ class RippleCtrl:
         return r/t, g/t, b/t
 
     def draw(self):
+
+        self._spawnNext -= 1
+        if self._spawnNext<= 0:
+            self._spawnNode()
 
         for node in self._nodes:
             _change = 7
