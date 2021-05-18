@@ -40,11 +40,12 @@ class RippleCtrl:
     def draw(self):
 
         for node in self._nodes:
+            max_change = 7
             cur = self._colors[node.index]
             tar = node.color
-            r = max(3, min(-3, tar[0] - cur[0]))
-            g = max(3, min(-3, tar[1] - cur[1]))
-            b = max(3, min(-3, tar[2] - cur[2]))
+            r = max(max_change, min(-max_change, tar[0] - cur[0]))
+            g = max(max_change, min(-max_change, tar[1] - cur[1]))
+            b = max(max_change, min(-max_change, tar[2] - cur[2]))
             self._colors[node.index] = (r,g,b)
             print(self._colors[node.index])
 
