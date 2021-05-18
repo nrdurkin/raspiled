@@ -42,7 +42,7 @@ class RippleCtrl:
         return r/t, g/t, b/t
 
     def draw(self):
-
+        print(len(self._nodes))
         self._spawnNext -= 1
         if self._spawnNext<= 0:
             self._spawnNode()
