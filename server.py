@@ -53,5 +53,5 @@ def handleStripe():
     return "Success"
 
 if device == 'PI':
-    _thread.start_new_thread(main, strip)
+    _thread.start_new_thread(main, (strip,))
 app.run(host="0.0.0.0", port="8000")
