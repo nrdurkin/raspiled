@@ -51,4 +51,4 @@ class RippleCtrl:
         self._colors = newCols
         print(self._colors[10])
         for i, col in enumerate(self._colors):
-            self._strip[i] = col
+            self._strip[i] = self._colors[10]
