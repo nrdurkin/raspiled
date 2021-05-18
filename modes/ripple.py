@@ -19,7 +19,7 @@ class RippleCtrl:
 
     def _averageLocal(self, i):
 
-        f = lambda q: 1 if q == 0 else 0
+        f = lambda q: -.03 * q * q + 1
 
         start = max(i-5, 0)
         end = min(i+5, len(self._strip))
