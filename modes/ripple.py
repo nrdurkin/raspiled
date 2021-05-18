@@ -9,12 +9,12 @@ class Node:
 
 class RippleCtrl:
     def __init__(self,strip):
-        self._node = []
+        self._nodes = []
         self._colors = [(0,0,0) for i in range(len(strip))]
         self._strip = strip
 
     def start(self):
-        self._node.append(Node(random.randint(0,len(self._strip))))
+        self._nodes.append(Node(random.randint(0,len(self._strip))))
 
     def _averageLocal(self, i):
 
@@ -35,6 +35,15 @@ class RippleCtrl:
         return r/t, g/t, b/t
 
     def draw(self):
+
+        for node in self._nodes:
+            cur = self._colors[node.index]
+            tar = node.color
+            cur[0] += max(3, min(-3, tar[0] - cur[0]))
+            cur[1] += max(3, min(-3, tar[1] - cur[1]))
+            cur[2] += max(3, min(-3, tar[2] - cur[2]))
+
+
         newCols = []
         for i in range(len(self._colors)):
             newCols.append( self._averageLocal(i))
