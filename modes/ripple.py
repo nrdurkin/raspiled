@@ -36,7 +36,7 @@ class RippleCtrl:
 
     def draw(self):
         newCols = []
-        for i in range(self._colors):
+        for i in range(len(self._colors)):
             newCols[i] = self._averageLocal(i)
         self._colors = newCols
         for i, col in enumerate(self._colors):
