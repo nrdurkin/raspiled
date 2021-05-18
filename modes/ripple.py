@@ -44,9 +44,9 @@ class RippleCtrl:
             cur = self._colors[node.index]
             tar = node.color
             print(cur, tar)
-            r = max(-max_change, min(max_change, tar[0] - cur[0]))
-            g = max(-max_change, min(max_change, tar[1] - cur[1]))
-            b = max(-max_change, min(max_change, tar[2] - cur[2]))
+            r = cur[0] + max(-max_change, min(max_change, tar[0] - cur[0]))
+            g = cur[1] + max(-max_change, min(max_change, tar[1] - cur[1]))
+            b = cur[2] + max(-max_change, min(max_change, tar[2] - cur[2]))
             self._colors[node.index] = (r,g,b)
             print(self._colors[node.index])
 
