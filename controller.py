@@ -20,7 +20,7 @@ class ColorStrip:
         self._startup()
 
     def _fill(self, color):
-        print(color)
+        print(color, 23)
         for i in range(self._size):
             self._strip[i] = color
         self._strip.show()
