@@ -17,7 +17,7 @@ class RippleCtrl:
 
     def _spawnNode(self):
         self._nodes.append(Node(random.randint(0, len(self._strip))))
-        self._spawnNext = random.randint(60 * 3, 60 * 5)
+        self._spawnNext = random.randint(60 * .5, 60 * 2)
 
     def start(self):
         for i in range(4):
