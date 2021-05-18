@@ -16,3 +16,4 @@ class Mode(Enum):
     CROSSFADE = 1
     FAIRY = 2
     STRIPE = 3
+    RIPPLE = 4

@@ -30,6 +30,19 @@ document.getElementById("fade").onclick = (e) => {
     };
 };
 
+document.getElementById("ripple").onclick = (e) => {
+    next_request = {
+        url: "/ripple",
+        data: {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            method: "POST"
+        }
+    };
+};
+
 document.getElementById("fairy-submit").onclick = (e) => {
     let min = document.getElementById("fairy-min").value;
     let max = document.getElementById("fairy-max").value;

@@ -52,6 +52,12 @@ def handleStripe():
         strip.setMode(Mode.STRIPE, colors, interval)
     return "Success"
 
+@app.route("/ripple", methods=['POST'])
+def handleRipple():
+    if device == "PI":
+        strip.setMode(Mode.RIPPLE)
+    return "Success"
+
 if device == 'PI':
     _thread.start_new_thread(main, (strip,))
 app.run(host="0.0.0.0", port="8000")

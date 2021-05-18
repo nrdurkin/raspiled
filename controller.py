@@ -5,6 +5,7 @@ from util import rgb, Mode
 from modes.crossFade import CrossFadeCtrl
 from modes.fairy import FairyCtrl
 from modes.stripe import StripeCtrl
+from modes.ripple import RippleCtrl
 
 class ColorStrip:
 
@@ -16,6 +17,7 @@ class ColorStrip:
         self._CrossFadeCtrl = CrossFadeCtrl(self._fill)
         self._FairyCtrl = FairyCtrl(self._strip)
         self._StripeCtrl = StripeCtrl(self._strip)
+        self._RippleCtrl = RippleCtrl(self._strip)
 
         self._startup()
 
@@ -40,6 +42,8 @@ class ColorStrip:
             self._FairyCtrl.draw()
         elif self._mode == Mode.STRIPE:
             self._StripeCtrl.draw()
+        elif self._mode == Mode.RIPPLE:
+            self._RippleCtrl.draw()
 
     def setMode(self, mode, *arg):
         self._mode = mode
@@ -49,6 +53,8 @@ class ColorStrip:
             self._FairyCtrl.start(*arg)
         elif mode == Mode.STRIPE:
             self._StripeCtrl.start(*arg)
+        elif mode == Mode.RIPPLE:
+            self._RippleCtrl.start()
 
 FPS = 60
 def main(strip :ColorStrip):
