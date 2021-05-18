@@ -39,7 +39,9 @@ class RippleCtrl:
             g+=c[1]* weight
             b+=c[2]* weight
             t += weight
-        return r/t, g/t, b/t
+
+        _decay = 1.5
+        return max(r/t - _decay, 0), max(g/t - _decay,0), max(b/t - _decay,0)
 
     def draw(self):
         print(len(self._nodes))
