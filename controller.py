@@ -17,7 +17,7 @@ class ColorStrip:
         self._CrossFadeCtrl = CrossFadeCtrl(self._fill)
         self._FairyCtrl = FairyCtrl(self._strip)
         self._StripeCtrl = StripeCtrl(self._strip)
-        self._RippleCtrl = RippleCtrl(self._strip)
+        self._RippleCtrl = RippleCtrl(self._strip, self._fill)
 
         self._startup()
 

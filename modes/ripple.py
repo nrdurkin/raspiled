@@ -8,10 +8,11 @@ class Node:
         self.life = random.randint(60*4, 60*10)
 
 class RippleCtrl:
-    def __init__(self,strip):
+    def __init__(self,strip, f):
         self._nodes = []
         self._colors = [(0,0,0) for i in range(len(strip))]
         self._strip = strip
+        self.fill = f
 
     def start(self):
         self._nodes.append(Node(10))
@@ -49,5 +50,4 @@ class RippleCtrl:
         for i in range(len(self._colors)):
             newCols.append(self._averageLocal(i))
         self._colors = newCols
-        for i in range(300):
-            self._strip[i] = (255,0,0)
+        self.fill((255,0,0))
