@@ -49,5 +49,5 @@ class RippleCtrl:
         for i in range(len(self._colors)):
             newCols.append(self._averageLocal(i))
         self._colors = newCols
-        for i in range(300)
+        for i in range(300):
             self._strip[i] = (255,0,0)
