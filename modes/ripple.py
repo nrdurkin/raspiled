@@ -14,7 +14,7 @@ class RippleCtrl:
         self._strip = strip
 
     def start(self):
-        self._nodes.append(Node(random.randint(0,len(self._strip))))
+        self._nodes.append(Node(10))
 
     def _averageLocal(self, i):
 
@@ -31,6 +31,9 @@ class RippleCtrl:
             g+=c[1]* weight
             b+=c[2]* weight
             t += weight
+
+        if i == 10:
+            print(r/t, g/t, b/t)
 
         return r/t, g/t, b/t
 
