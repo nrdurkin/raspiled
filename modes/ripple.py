@@ -39,9 +39,10 @@ class RippleCtrl:
         for node in self._nodes:
             cur = self._colors[node.index]
             tar = node.color
-            cur[0] += max(3, min(-3, tar[0] - cur[0]))
-            cur[1] += max(3, min(-3, tar[1] - cur[1]))
-            cur[2] += max(3, min(-3, tar[2] - cur[2]))
+            r = max(3, min(-3, tar[0] - cur[0]))
+            g = max(3, min(-3, tar[1] - cur[1]))
+            b = max(3, min(-3, tar[2] - cur[2]))
+            self._colors[node.index] = (r,g,b)
 
 
         newCols = []
