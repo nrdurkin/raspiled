@@ -48,4 +48,4 @@ class RippleCtrl:
         for i in range(len(self._colors)):
             newCols.append(self._averageLocal(i))
         self._colors = newCols
-        self.fill((255,0,0))
+        self.fill(self._colors[10])
