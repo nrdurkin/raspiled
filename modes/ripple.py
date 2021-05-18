@@ -31,10 +31,6 @@ class RippleCtrl:
             g+=c[1]* weight
             b+=c[2]* weight
             t += weight
-
-        if i == 10:
-            print(r/t, g/t, b/t)
-
         return r/t, g/t, b/t
 
     def draw(self):
@@ -53,5 +49,6 @@ class RippleCtrl:
         for i in range(len(self._colors)):
             newCols.append(self._averageLocal(i))
         self._colors = newCols
+        print(self._colors[10])
         for i, col in enumerate(self._colors):
             self._strip[i] = col
