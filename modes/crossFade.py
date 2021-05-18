@@ -24,16 +24,14 @@ class CrossFadeCtrl:
 
     def draw(self):
         col = tuple(self._col)
-        self._col[0] += self._col[0]
-        self._col[1] += self._col[1]
-        self._col[2] += self._col[2]
+        self._col[0] += self._change[0]
+        self._col[1] += self._change[1]
+        self._col[2] += self._change[2]
         self._frames -= 1
-        print(col, 31)
         self._fill(col)
         if self._frames <= 0:
             self._getNext()
 
     def _start(self):
         self._col = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
-        print(self._col, 38)
         self._getNext()
