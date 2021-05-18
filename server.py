@@ -1,7 +1,9 @@
 import logging,json, sys, _thread
 device = sys.argv[1]
 if device == 'PI':
-    from controller import blockColor, rgb, initCrossFade, initFairy, initStripe, main
+    from controller import ColorStrip, main
+    from util import Mode
+    strip = ColorStrip()
 
 from flask import Flask, render_template, request
 app = Flask(__name__, static_url_path='',static_folder='public', template_folder='public')
@@ -19,14 +21,14 @@ def handleColor():
     color = data['color']
 
     if device == "PI":
-        blockColor(rgb(color))
+        strip.setMode(Mode.BLOCK, color)
 
     return "Success"
 
 @app.route("/fade",methods=['POST'])
 def handleFade():
     if device == "PI":
-        initCrossFade()
+        strip.setMode(Mode.CROSSFADE)
     return "Success"
 
 @app.route("/fairy",methods=['POST'])
@@ -37,7 +39,7 @@ def handleFairy():
     max_speed = float(data['maxSpeed'])
     count = int(data['count'])
     if device == "PI":
-        initFairy(min_speed, max_speed, count)
+        strip.setMode(Mode.FAIRY, min_speed, max_speed, count)
     return "Success"
 
 @app.route("/stripe", methods=['POST'])
@@ -47,9 +49,9 @@ def handleStripe():
     interval = float(data['interval'])
     colors = data['colors']
     if device == "PI":
-        initStripe(colors, interval)
+        strip.setMode(Mode.STRIPE, colors, interval)
     return "Success"
 
 if device == 'PI':
-    _thread.start_new_thread(main, (0,))
+    _thread.start_new_thread(main, strip)
 app.run(host="0.0.0.0", port="8000")
