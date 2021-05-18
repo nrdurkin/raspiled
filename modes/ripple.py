@@ -43,6 +43,7 @@ class RippleCtrl:
             g = max(3, min(-3, tar[1] - cur[1]))
             b = max(3, min(-3, tar[2] - cur[2]))
             self._colors[node.index] = (r,g,b)
+            print(self._colors[node.index])
 
 
         newCols = []
