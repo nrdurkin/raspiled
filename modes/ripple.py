@@ -22,7 +22,6 @@ class RippleCtrl:
 
         f = lambda q: -.01 * q * q + 1
 
-
         start = max(i-_range, 0)
         end = min(i+_range, len(self._strip))
 
@@ -46,6 +45,10 @@ class RippleCtrl:
             g = cur[1] + max(-_change, min(_change, tar[1] - cur[1]))
             b = cur[2] + max(-_change, min(_change, tar[2] - cur[2]))
             self._colors[node.index] = (r,g,b)
+            node.life -= 1
+            if node.life <= 0:
+                self._nodes.remove(node)
+
         newCols = []
         for i in range(len(self._colors)):
             newCols.append(self._averageLocal(i))
