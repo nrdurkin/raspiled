@@ -36,18 +36,18 @@ class RippleCtrl:
 
     def draw(self):
 
-        for node in self._nodes:
-            max_change = 7
-            cur = self._colors[node.index]
-            tar = node.color
-            r = cur[0] + max(-max_change, min(max_change, tar[0] - cur[0]))
-            g = cur[1] + max(-max_change, min(max_change, tar[1] - cur[1]))
-            b = cur[2] + max(-max_change, min(max_change, tar[2] - cur[2]))
-            self._colors[node.index] = (r,g,b)
-
-
-        newCols = []
-        for i in range(len(self._colors)):
-            newCols.append(self._averageLocal(i))
-        self._colors = newCols
+        # for node in self._nodes:
+        #     max_change = 7
+        #     cur = self._colors[node.index]
+        #     tar = node.color
+        #     r = cur[0] + max(-max_change, min(max_change, tar[0] - cur[0]))
+        #     g = cur[1] + max(-max_change, min(max_change, tar[1] - cur[1]))
+        #     b = cur[2] + max(-max_change, min(max_change, tar[2] - cur[2]))
+        #     self._colors[node.index] = (r,g,b)
+        #
+        #
+        # newCols = []
+        # for i in range(len(self._colors)):
+        #     newCols.append(self._averageLocal(i))
+        # self._colors = newCols
         self.fill((255,0,0))
