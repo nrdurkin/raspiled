@@ -28,6 +28,7 @@ class CrossFadeCtrl:
         self._col[1] += self._col[1]
         self._col[2] += self._col[2]
         self._frames -= 1
+        print(col)
         self._fill(col)
         if self._frames <= 0:
             self._getNext()
