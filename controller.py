@@ -58,7 +58,7 @@ class ColorStrip:
 
 FPS = 60
 def main(strip :ColorStrip):
-    strip.setMode(Mode.RIPPLE)
+    # strip.setMode(Mode.RIPPLE)
     lastFrameTime = 0
     while True:
         strip.loop()
